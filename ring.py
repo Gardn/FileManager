@@ -43,6 +43,6 @@ def ListChildren(ShowHidden = 0):
 
 GoHome()
 currentkids = ListChildren()
-print Action()
+print Action(currentkids[currentkids.index('Backup')])
 
 
