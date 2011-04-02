@@ -1,0 +1,15 @@
+Ring Style File Manager
+
+
+This is the first software piece of my own custom operating system for my 
+TouchScreen coffee table.
+
+The idea is a ring shaped file browser, with parent nodes on the
+exterior rings, and the children on the innermost ring, with the current
+directory displayed in the middle.
+
+Touching (or clicking) and dragging a ring will allow it to rotate to bring the desired folder closer and a double tap or double click will navigate into that
+directory. Similarly, double tap/clicking on an outer ring takes you out to that
+parent directory.
+
+Looking to implement OpenGL or something similar to add smooth and stunning visual effects to the navigation between directories, as well as a fade in and out for opening the filesystem itself
