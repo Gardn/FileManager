@@ -14,6 +14,15 @@ def GoHome():
     '''
     os.chdir(Home)
 
+def Action(child):
+    if os.path.isdir(child):
+        os.chdir(os.getcwd() + '/' + child)
+        return os.getcwd()
+    else:
+        ##openFile
+        return "File Opened"
+        
+
 def ListChildren(ShowHidden = 0):
     '''
     This program lists the Children files and directories of the current
@@ -33,5 +42,7 @@ def ListChildren(ShowHidden = 0):
     return InnerDirectories
 
 GoHome()
-print ListChildren()
-print ListChildren(1)
+currentkids = ListChildren()
+print Action()
+
+
