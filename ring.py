@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 ###########################################################
 #File Browser
 #Ring Style
@@ -15,12 +17,22 @@ def GoHome():
     os.chdir(Home)
 
 def Action(child):
-    if os.path.isdir(child):
+    if os.path.isdir(child) and child in os.listdir(os.getcwd()):
         os.chdir(os.getcwd() + '/' + child)
-        return os.getcwd()
+        return "now in: " + os.getcwd()
+    elif child.lower() == 'up':
+        return "going UP"
+    elif child.lower() == 'home':
+        GoHome()
+        return "now in: " + os.getcwd()
+    elif child.lower() == 'exit':
+        exit()
+        return "quitting"
+    elif child in  os.listdir(os.getcwd()):
+        os.system('xdg-open "' + child + '"')
+        return "Opening file"
     else:
-        ##openFile
-        return "File Opened"
+        return "not valid, retry"
         
 
 def ListChildren(ShowHidden = 0):
@@ -43,6 +55,11 @@ def ListChildren(ShowHidden = 0):
 
 GoHome()
 currentkids = ListChildren()
-print Action(currentkids[currentkids.index('Backup')])
+print "The contents of this directory are: "
+print currentkids
 
+print "Either input a file or directory name, or use 'up' or 'home'"
+while True:
+    UserChoice = raw_input('Choose a file or directory: ')
+    print Action(UserChoice)
 
